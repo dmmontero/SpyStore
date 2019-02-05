@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SpyStore.Models.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +8,7 @@ namespace SpyStore.DAL.EF
 {
     class StoreContext : DbContext
     {
+        public DbSet<Category> Categories { get; set; }
         public StoreContext()
         {
         }
@@ -19,8 +21,7 @@ namespace SpyStore.DAL.EF
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=SpyStore;Trusted_Connection=True;MultipleActiveResultSets=true;");
+                optionsBuilder.UseSqlServer(@"Server=DNPWP38104\MSSQLSERVER_2016;Database=SpyStoreDB;Trusted_Connection=True;MultipleActiveResultSets=true;");
             }
         }
     }
